@@ -40,10 +40,10 @@ const PokemonCard = ({pokemon, isPokedex}) => {
 
     return (
         <CardContent>
-            <h3>{pokemon.name}</h3>
+            <h2>{pokemon.name}</h2>
             <PokemonImg src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
             <BoxButton>
-                <button onClick={() => goToPokemonDetail(navigate, pokemon.name)}>Detalhes</button>
+                <button onClick={() => isPokedex ? goToPokemonDetail(navigate, pokedex.name) : goToPokemonDetail(navigate, pokemon.name) }>Detalhes</button>
                 <button onClick={isPokedex ? removeToPokedex : addToPokedex}>
                     {isPokedex ? "Remover da Pokedex" : "Adicionar a Pokedex"}
                 </button>

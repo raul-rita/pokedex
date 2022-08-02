@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header"
 import PokemonCard from "../../components/PokemonCard/PokemonCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
 import { goToPokemonsList } from "../../routes/coordinator"
+import { ContainerPage, PageContent } from "./styled"
 
 
 const PokedexPage = () => {
@@ -13,14 +14,17 @@ const PokedexPage = () => {
     const {pokedex} = useContext(GlobalStateContext)
 
     return (
-        <div>
+        <ContainerPage>
             <Header title={"Pokedex"} ButtonFunction={() => goToPokemonsList(navigate)} />
-            {
-                pokedex && pokedex.map((poke) => {
-                    return <PokemonCard isPokedex key={poke.name} pokemon={poke} />
-                })
-            }
-        </div>
+            <h1>Pokedex</h1>
+            <PageContent>
+                {
+                    pokedex && pokedex.map((poke) => {
+                        return <PokemonCard isPokedex key={poke.name} pokemon={poke} />
+                    })
+                }
+            </PageContent>            
+        </ContainerPage>
     )
 }
 

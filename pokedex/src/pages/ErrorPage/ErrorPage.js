@@ -1,10 +1,12 @@
-import react from "react";
+import React from "react";
+import { ContainerPage } from "./styled";
 
 const ErrorPage = () => {
     return (
-        <div>
-            ErrorPage
-        </div>
+        <ContainerPage>
+            <h1>ERROR 404</h1>
+            <h3>NOT FOUND</h3>
+        </ContainerPage>
     )
 }
 

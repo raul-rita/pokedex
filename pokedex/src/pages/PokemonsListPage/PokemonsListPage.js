@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Header from "../../components/Header/Header";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import GlobalStateContext from "../../global/GlobalStateContext";
-import { PageContent } from "./styled";
+import { ContainerPage, PageContent } from "./styled";
 import { useNavigate } from "react-router-dom"
 import { goToPokedex } from "../../routes/coordinator";
 
@@ -13,9 +13,11 @@ const PokemonsListPage = () => {
     const navigate = useNavigate()
 
     return (
-        <div>
+        <ContainerPage>
             <Header title={"Lista de Pokemons"} ButtonFunction={() => goToPokedex(navigate)} />
 
+            <h1>Lista de Pokemons</h1>
+            
             <PageContent>
                 {
                     pokemons.map((poke) => {
@@ -23,7 +25,7 @@ const PokemonsListPage = () => {
                     })
                 }
             </PageContent>
-        </div>
+        </ContainerPage>
 
     )
 }

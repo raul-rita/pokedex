@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import Header from "../../components/Header/Header"
 import { useParams } from "react-router-dom"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import { AttackCard, Box, BoxDetails, BoxNameType, PageContent, PowerCard, StatsBox, TypeContent } from "./styled"
+import { AttackCard, Box, BoxDetails, BoxNameType, ContainerPage, PageContent, PowerCard, StatsBox, TypeContent } from "./styled"
 import { useNavigate } from "react-router-dom"
 import { goToPokemonsList } from "../../routes/coordinator"
 
@@ -20,19 +20,17 @@ const PokemonDetailPage = () => {
             return item.name === name
         })
         setSelectedPokemon(findPokemon)
-    }, [])
+    }, [pokemons, name])
 
     return (
-        <div>
+        <ContainerPage>
             <Header title={"Detalhes do Pokemon"} ButtonFunction={() => goToPokemonsList(navigate)} />
             <PageContent>
                 <BoxDetails>
-                    <div>
                         <img 
                             src={selectedPokemon && selectedPokemon.sprites && selectedPokemon.sprites.other.dream_world.front_default} 
                             alt={selectedPokemon.name} 
-                        />
-                    </div>
+                        />                   
                     <StatsBox>
                         <BoxNameType>
                             <h1>{selectedPokemon.name}</h1>
@@ -75,7 +73,7 @@ const PokemonDetailPage = () => {
                     </StatsBox>
                 </BoxDetails>
             </PageContent>
-        </div>
+        </ContainerPage>
     )
 }
 

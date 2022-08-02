@@ -1,6 +1,10 @@
 import { HeaderContent } from "./styled"
+import logo from "../../images/logo.png"
+import { useNavigate } from "react-router-dom"
 
 const Header = ({title, ButtonFunction}) => {
+
+    const navigate = useNavigate()
 
     const ButtonTitle = () => {
         switch (title) {
@@ -15,8 +19,9 @@ const Header = ({title, ButtonFunction}) => {
 
     return (
         <HeaderContent>
+            <button onClick={() => navigate(-1)}>Voltar</button>
+            <img src={logo} alt={"logo do pokemon"} />
             <button onClick={ButtonFunction}>{ButtonTitle()}</button>
-            <h1>{title}</h1>
         </HeaderContent>
     )
 }

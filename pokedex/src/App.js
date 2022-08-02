@@ -4,9 +4,9 @@ import Router from "./routes/Router";
 const App = () => {
 
   return (
-    <GlobalState>
+      <GlobalState>
         <Router/>
-    </GlobalState>
+      </GlobalState>    
   )
 }
 
